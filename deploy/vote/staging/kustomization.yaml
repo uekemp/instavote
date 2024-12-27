@@ -5,3 +5,20 @@ resources:
 patches:
 - path: deployment.yaml
 - path: service.yaml
+
+replicas:
+- name: vote
+  count: 7
+
+namespace: instavote
+
+images:
+- name: schoolofdevops/vote
+  newTag: v4
+
+commonLabels:
+  project: instavote
+  env: staging
+
+commonAnnotations:
+  supported-by: "ulrich.kemp@telekom.de"
